@@ -1,0 +1,22 @@
+{% extends 'board_game/base.html' %} 
+
+{% block content %} 
+
+    <p>Game: {{ game }}</p>
+
+    <p>Rents:</p>
+    <p>
+        <a href="{% url 'board_game:new_rent' game.id %}">New rent</a>
+    </p>
+    <ul>
+    {% for rent in rents %} 
+        <li>
+            <p>{{ rent.date_added|date:'M d, Y H:i'}}</p>
+            <p>{{ rent.review|linebreaks }}</p>
+        </li>
+    {% empty %} 
+        <li>There are no rents for this game yet</li>
+    {% endfor %} 
+    </ul>
+
+{% endblock content %} 
