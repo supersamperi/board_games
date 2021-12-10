@@ -3,6 +3,8 @@
 Group project for school
 
 Web app with django
+<<<<<<< HEAD
+=======
 
 8.12
 Luotiin superuser; ap pw: ap
@@ -15,3 +17,4 @@ Rekisteröitiin Rent model -> admin.py
 Luotiin template kansio jonka sisällä kaikki .html (base,game,games,index,new_game,new_rent)
 Luotiin forms.py
 
+>>>>>>> 080731961b2a4ffdbbf246b735efc38e5cafdbd6
