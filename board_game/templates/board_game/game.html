@@ -1,25 +1,26 @@
 {% extends 'board_game/base.html' %} 
 
+{% block page_header %} 
+    <h3>{{ game }}</h3>
+{% endblock page_header %} 
+
 {% block content %} 
-
-    <p>Game: {{ game }}</p>
-
-    <p>Rents:</p>
     <p>
         <a href="{% url 'board_game:new_rent' game.id %}">New rent</a>
     </p>
-    <ul>
-    {% for rent in rents %} 
-        <li>
-            <p>{{ rent.date_added|date:'M d, Y H:i'}}</p>
-            <p>{{ rent.review|linebreaks }}</p>
-            <p>
-                <a href="{% url 'board_game:edit_rent' rent.id %}">Edit rent</a>
-            </p>
-        </li>
-    {% empty %} 
-        <li>There are no rents for this game yet</li>
-    {% endfor %} 
-    </ul>
 
+    {% for rent in rents %} 
+        <div class="card mb-3">
+            <h4 class="card-header">
+                {{ rent.date_added|date:'M d, Y H:i' }} 
+                <small><a href="{% url 'board_game:edit_rent' rent.id %}">
+                    Edit rent</a></small>
+            </h4>
+            <div class="card-body">
+                {{ rent.review|linebreaks }} 
+            </div>
+        </div>
+    {% empty %} 
+        <p>There are no rents for this game yet.</p>
+    {% endfor %} 
 {% endblock content %} 
