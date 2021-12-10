@@ -15,4 +15,6 @@ urlpatterns = [
     path('new_game/', views.new_game, name='new_game'),
     # page for adding a new rent
     path('new_rent/<int:game_id>', views.new_rent, name='new_rent'),
+    # page for editing rent
+    path('edit_rent/<int:rent_id>/', views.edit_rent, name='edit_rent')
 ]

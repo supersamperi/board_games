@@ -13,6 +13,9 @@
         <li>
             <p>{{ rent.date_added|date:'M d, Y H:i'}}</p>
             <p>{{ rent.review|linebreaks }}</p>
+            <p>
+                <a href="{% url 'board_game:edit_rent' rent.id %}">Edit rent</a>
+            </p>
         </li>
     {% empty %} 
         <li>There are no rents for this game yet</li>
