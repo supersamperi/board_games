@@ -5,8 +5,8 @@ from .models import Game, Rent
 class GameForm(forms.ModelForm):
     class Meta:
         model = Game
-        fields = ['name', 'maker', 'year_published', 'description']
-        labels = {'name': 'Nimi', 'maker': 'Julkaisija', 'year_published': 'Valmistusvuosi', 'description': 'Kuvaus'}
+        fields = ['name', 'maker', 'year_published', 'description', 'owner']
+        labels = {'name': 'Nimi', 'maker': 'Julkaisija', 'year_published': 'Valmistusvuosi', 'description': 'Kuvaus', 'owner': 'Omistaja'}
 
 class RentForm(forms.ModelForm):
     class Meta:
