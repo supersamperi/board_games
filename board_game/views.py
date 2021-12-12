@@ -14,7 +14,7 @@ def index(request):
 @login_required
 def games(request):
     """show all games"""
-    games = Game.objects.filter(owner=request.user).order_by('date_added')
+    games = Game.objects.order_by('date_added')
     context = {'games': games}
     return render(request, 'board_game/games.html', context)
 
@@ -22,9 +22,6 @@ def games(request):
 def game(request, game_id):
     """Show a single game and all its rent data"""
     game = Game.objects.get(id=game_id)
-    # Make sure the game belongs to the current user.
-    if game.owner != request.user:
-        raise Http404
 
     rents = game.rent_set.order_by('-date_added')
     context = {'game': game, 'rents': rents}
