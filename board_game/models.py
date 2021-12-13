@@ -28,13 +28,12 @@ class Rent(models.Model):
         MaxValueValidator(5)],)
     renter = models.CharField(max_length=30)
     review = models.CharField(max_length=255)
+    rented = models.BooleanField()
 
     """Adding date added and date modified fields that are automatic"""
     date_added = models.DateTimeField(auto_now_add=True)
     date_modified = models.DateTimeField(auto_now=True)
 
-    """Deleting rent info if the game is deleted"""
-    #bgame = models.ForeignKey(Game, on_delete=models.CASCADE)
 
     class Meta:
         verbose_name_plural = 'Rent'

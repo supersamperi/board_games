@@ -1,7 +1,13 @@
 {% extends 'board_game/base.html' %} 
 
 {% block page_header %} 
-    <h3>{{ game }}</h3>
+    <h1>{{ game }}</h1>
+    <h6>Valmistaja: {{ game.maker }}</h6>
+    <h6>Julkaisuvuosi: {{ game.year_published }}</h6>
+    <h6>Kuvaus: {{ game.description }}</h6>
+	<h6>Omistaja: {{ game.owner }}</h6>
+    <h6>Peli lisätty: {{ game.date_added }}</h6>
+    <h6>Muokattu viimeksi: {{ game.date_modified }}</h6>
 {% endblock page_header %} 
 
 {% block content %} 
@@ -17,7 +23,7 @@
                     Edit rent</a></small>
             </h4>
             <div class="card-body">
-                {{ rent.review|linebreaks }} 
+                Lainaaja: {{ rent.renter|linebreaks }} 
             </div>
         </div>
     {% empty %} 

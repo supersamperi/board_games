@@ -5,7 +5,7 @@
 {% endblock page_header %} 
     {% block content %} 
         <ul>
-            {% for game in games %} 
+            {% for game in games %}
                 <li><h3>
                     <a href="{% url 'board_game:game' game.id %}">{{ game }}</a>
                 </h3></li>
