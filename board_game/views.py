@@ -85,3 +85,23 @@ def edit_rent(request, rent_id):
     
     context = {'rent' : rent, 'game' : game, 'form' : form}
     return render(request, 'board_game/edit_rent.html', context)
+
+def edit_game(request, game_id):
+    """Edit an exiting game."""
+    game = Game.objects.get(id=game_id)
+    if game.owner != request.user:
+        raise Http404
+
+    if request.method != 'POST':
+        # Initial request; pre-fill form with the current rent.
+        form = GameForm(instance=game)
+    else:
+        # POST data submitted; process data.
+        form = GameForm(instance=game, data=request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('board_game:game', game_id=game.id)
+    
+    context = {'game' : game, 'form' : form}
+    return render(request, 'board_game/edit_game.html', context)
+

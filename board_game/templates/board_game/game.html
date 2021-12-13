@@ -7,7 +7,10 @@
     <h6>Kuvaus: {{ game.description }}</h6>
 	<h6>Omistaja: {{ game.owner }}</h6>
     <h6>Peli lisätty: {{ game.date_added }}</h6>
-    <h6>Muokattu viimeksi: {{ game.date_modified }}</h6>
+    <h6>Muokattu viimeksi: {{ game.date_modified }}</h6> 
+    <h6>
+        <a href="{% url 'board_game:edit_game' game.id %}">Edit game</a>
+    </h6>
 {% endblock page_header %} 
 
 {% block content %} 
